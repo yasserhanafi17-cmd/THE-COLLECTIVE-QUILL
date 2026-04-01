@@ -1032,9 +1032,28 @@
         }
 
         /* ABOUT VIEW */
-        .about-view {max-width: 740px; margin: 4rem auto; text-align: center; animation: tIn .3s ease; padding: 0 1.5rem;}
-        .about-content h2 {font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: var(--ink); margin-bottom: 1.5rem;}
-        .about-content p {font-size: 1.25rem; line-height: 1.9; color: var(--ink-mid); margin-bottom: 1.8rem; font-family: 'Cormorant Garamond', serif;}
+        .about-view {
+            max-width: 740px;
+            margin: 4rem auto;
+            text-align: center;
+            animation: tIn .3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .about-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.25rem;
+            line-height: 1.9;
+            color: var(--ink-mid);
+            margin-bottom: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
     </style>
 </head>
 
@@ -1113,9 +1132,13 @@
             <div class="about-content">
                 <h2>About the Collective Quill</h2>
                 <div class="ornamental-divider" style="margin-bottom: 2.5rem;">✦ ✦ ✦</div>
-                <p>Welcome to the Collective Quill, where stories transcend borders and language is our greatest craft. We are a community of writers dedicated to the art of long-form storytelling—whether weaving intricate novels or crafting compelling magazine articles.</p>
-                <p>Spanning the rich linguistic heritage of Arabic, English, and French, our collective brings together diverse voices to inspire, critique, and elevate one another.</p>
-                <p>Whether you are a seasoned novelist or a budding journalist, join us to sharpen your quill and tell the stories only you can tell.</p>
+                <p>Welcome to the Collective Quill, where stories transcend borders and language is our greatest craft.
+                    We are a community of writers dedicated to the art of long-form storytelling—whether weaving
+                    intricate novels or crafting compelling magazine articles.</p>
+                <p>Spanning the rich linguistic heritage of Arabic, English, and French, our collective brings together
+                    diverse voices to inspire, critique, and elevate one another.</p>
+                <p>Whether you are a seasoned novelist or a budding journalist, join us to sharpen your quill and tell
+                    the stories only you can tell.</p>
             </div>
         </div>
     </main>
@@ -1161,6 +1184,9 @@
 
         // --- Use this section to add PDFs via code ---
         addPdfFromCode('magazinev2.pdf', 'English magazine', 'Yasser Hanafi', 'A fascinating collection of modern literature exploring deep philosophical concepts.', 'journalism', 2.5);
+        addPdfFromCode('magazinefr.pdf', 'French magazine', 'Masri Rajaa', ' ', 'journalism', 2.5);
+        addPdfFromCode('novel.pdf', 'THE MAN WHODIDNT ANSWER', 'Yasser Hanafi', 'In a nameless city, a man moves through the world in quiet refusal. He pays his rent. He holds doors open. He steps aside on narrow pavements. But when asked to explain himself who he is, what he wants, why he will not speak he simply does not answer.Over the course of a single day, he encounters a clerk who files him under the only name she can find, an official undone by a category problem he has no procedure for, a colleague who compares him to a broken fountain still standing in the square, and a boy crying alone at midnight whom he comforts without a word. The Man Who Didnt Answer is a meditation on the courage of not knowing on what it means to live honestly inside the silence where certainty refuses to come. Spare, poetic, and quietly devastating, it asks whether the questions we carry might matter more than any answer we could give them.', 'novel', 2.5);
+        addPdfFromCode('novel2.pdf', 'LA CHAMBRE 213', 'Malak Benzzi', ' Une lettre glissée sous une porte. Pas de signature. Pas de explication. Juste une adresse et un numéro de chambre qui, selon le réceptionniste, na jamais existé.Méliane Roux est journaliste de investigation depuis dix ans. Elle a appris que derrière chaque mystère se cache un homme de chair et de os avec des motivations ordinaires. Elle ne croit pas aux coïncidences, aux fantômes, ni aux affaires que personne ne cherche vraiment à résoudre. Sa sœur Méline a disparu il y a sept mois au fond dune route de campagne. La police a classé le dossier en trois semaines. Le monde a continué de tourner.Méliane, elle, na pas continué.À lhôtel Saint-Coch, quelque chose ne va pas. Les portes se succèdent dans un ordre qui cloche. Les employés confondent les dates, évitent les regards, répondent trop vite aux mauvaises questions. Dans le village voisin, personne ne prononce certains noms. Et sur les murs du deuxième étage, derrière un papier peint floral délavé, quelque chose respire. Il existe des endroits que les cartes refusent de cartographier. Des chambres qui napparaissent sur aucun plan. Des noms rayés dans des registres que personne nest censé trouver.Il existe des gens que le monde a décidé, collectivement et silencieusement, de ne pas retenir.Méliane est sur le point de comprendre pourquoi.', 'novrl', 2.5);
 
         document.getElementById('todayDate').textContent =
             new Date().toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -1181,7 +1207,7 @@
                     const ctx = canvas.getContext('2d');
                     await page.render({ canvasContext: ctx, viewport: viewport }).promise;
                     d.coverUrl = canvas.toDataURL('image/jpeg', 0.8);
-                    
+
                     // Re-render library to show the new cover
                     renderLibrary();
                 } catch (err) {
@@ -1190,7 +1216,7 @@
                 }
             }
         }
-        
+
         // Let initialization finish, then generate covers.
         setTimeout(generateThumbnails, 500);
 
@@ -1222,7 +1248,7 @@
 
         function gridCard(d) {
             const c = ac(d.id % 6);
-            const coverHtml = d.coverUrl 
+            const coverHtml = d.coverUrl
                 ? `<img src="${d.coverUrl}" style="width:100%; height:auto; display:block; position:relative; z-index:1;" />`
                 : `<div style="height:180px; width:100%; position:relative; display:flex; align-items:center; justify-content:center;">
                    <div class="card-thumb-bg" style="background:linear-gradient(160deg,${c}14,${c}28)"></div>
@@ -1301,7 +1327,7 @@
             document.getElementById('library').style.display = '';
             document.querySelector('.toolbar').style.display = 'flex';
             document.querySelector('.ornamental-divider').style.display = 'flex';
-            
+
             document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
             document.getElementById('navLibrary').classList.add('active');
         }
@@ -1312,7 +1338,7 @@
             document.querySelector('.toolbar').style.display = 'none';
             document.querySelector('.ornamental-divider').style.display = 'none';
             document.getElementById('aboutView').style.display = 'block';
-            
+
             document.querySelectorAll('.header-nav a').forEach(a => a.classList.remove('active'));
             document.getElementById('navAbout').classList.add('active');
         }
